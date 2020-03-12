@@ -15,6 +15,11 @@ function Navbar() {
                             About
                         </Link>
                     </li>
+                    <li className='nav-item'>
+                        <Link to='/employee' className={window.location.pathname === '/' || window.location.path === '/employee' ? 'nav-link active' : 'nav-link'} >
+                            Employees
+                        </Link>
+                    </li>
                 </ul>
             </div>
         </nav>           

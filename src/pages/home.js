@@ -3,6 +3,8 @@ import Container from "../components/container";
 import Row from "../components/row";
 import Col from "../components/col";
 import Table from '../components/table';
+import TableRow from '../components/tableRow';
+
 
 function Home () {
     return (
@@ -11,7 +13,11 @@ function Home () {
                 <Row>
                     <Col size='lg-12'>
                     <p>Home Page</p>
-                    <Table />
+                    <Table>
+                        <TableRow scope="row" name="Eddie">
+
+                        </TableRow>
+                    </Table>
                     </Col>
                 </Row>
             </Container>

@@ -7,30 +7,13 @@ function table(props) {
             <thead className="thead-dark">
                 <tr>
                     <th scope={props.scope}>#</th>
-                    <th scope="col">1</th>
-                    <th scope="col">2</th>
-                    <th scope="col">3</th>
+                    <th scope={props.scope}>Full Name</th>
+                    <th scope={props.scope}>Address</th>
+                    <th scope={props.scope}>Email</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <th scope="row"></th>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <th scope="row"></th>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
+                {props.children}
             </tbody>
         </table>
     )

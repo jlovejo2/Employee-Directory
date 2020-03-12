@@ -2,8 +2,8 @@ import React from 'react';
 
 function Footer() {
     return (
-        <footer className='footer'>
-            <span>Employee Directory</span>
+        <footer className='footer text-center'>
+            <span>Employee Directory 2020</span>
         </footer>
     );
 }
