@@ -4,6 +4,7 @@ import Container from "../components/container";
 import Row from "../components/row";
 import Col from "../components/col";
 // import Table from '../components/table';
+import SearchTable from '../components/searchTable'
 import TableRow from '../components/tableRow';
 
 class Employees extends Component {
@@ -111,17 +112,11 @@ render() {
                             </ul>
                         </p>
                         <br></br>
-                        <div class="input-group mb-3">
-
-                            <select class="custom-select-sm" value={this.state.value} onChange={this.handleChange}>
-                                <option selected value="firstName">First Name</option>
-                                <option value="lastName">Last Name</option>
-                                <option value="yearsWithCompany">Years With Company</option>
-                            </select>
-                            <input type="text" class="form-control" onChange={e => this.onFilter(e, e.target.value, this.state.value)} ></input>
-
-                        </div>
-
+                        <SearchTable
+                        value = {this.state.value}
+                        selectChange={this.handleChange}
+                        filterFunc={e => this.onFilter(e, e.target.value, this.state.value)}
+                        />
                         <br></br>
                         <table className="table">
                             <thead className="thead-dark">
@@ -151,7 +146,6 @@ render() {
                                     })
                                 }
                             </tbody>
-
                         </table>
                     </Col>
                 </Row>
