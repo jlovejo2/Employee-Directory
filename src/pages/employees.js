@@ -18,6 +18,20 @@ class Employees extends Component {
 
     };
 
+    onSort(event, sortKey) {
+
+        const employeeData = this.state.employeeResArr
+        employeeData.sort((employee1, employee2) => {
+            return employee1[sortKey].localeCompare(employee2[sortKey])
+        })
+        this.setState({employeeData})
+        }
+
+    // handleBtnClick = event => {
+    //     const 
+
+    // }
+
     loadEmployees = () => {
         API.getEmployees()
             .then(res => {
@@ -55,7 +69,7 @@ class Employees extends Component {
                                 <thead className="thead-dark">
                                     <tr>
                                         <th scope='col'>#</th>
-                                        <th scope='col'>Full Name</th>
+                                        <th scope='col' onClick={e => this.onSort(e, 'name')}>Full Name</th>
                                         <th scope='col'>Picture</th>
                                         <th scope='col'>Address</th>
                                         <th scope='col'>Email</th>
@@ -66,7 +80,8 @@ class Employees extends Component {
                                         this.state.employeeResArr.map((value, index) => {
                                     return <TableRow 
                                     scope="row"
-                                     key={index} 
+                                     key={index}
+                                     num={index}
                                      name={value.name} 
                                      image={value.image} 
                                      email={value.email}

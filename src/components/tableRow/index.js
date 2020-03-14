@@ -2,10 +2,10 @@ import React from 'react';
 
 
 function tableRow(props) {
-    console.log(props);
+    // console.log(props.key);
     return (
         <tr>
-            <th scope={props.scope} key={props.key}></th>
+            <th scope={props.scope}>{props.num + 1}</th>
             <td>{props.name}</td>
             <td>
                 <img src={props.image} alt='thumbnail'></img>
