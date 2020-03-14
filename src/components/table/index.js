@@ -2,14 +2,15 @@ import React from 'react';
 // import thead from './components/thead'
 
 function table(props) {
+    console.log(...props)
     return (
-        <table className="table" {...props}>
+        <table className="table">
             <thead className="thead-dark">
                 <tr>
-                    <th scope={props.scope}>#</th>
-                    <th scope={props.scope}>Full Name</th>
-                    <th scope={props.scope}>Address</th>
-                    <th scope={props.scope}>Email</th>
+                    <th scope='col'>#</th>
+                    <th scope='col'>Full Name</th>
+                    <th scope='col'>Address</th>
+                    <th scope='col'>Email</th>
                 </tr>
             </thead>
             <tbody>

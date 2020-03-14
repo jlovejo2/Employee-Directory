@@ -3,52 +3,102 @@ import API from '../utils/API';
 import Container from "../components/container";
 import Row from "../components/row";
 import Col from "../components/col";
-import Table from '../components/table';
+// import Table from '../components/table';
 import TableRow from '../components/tableRow';
 
 class Employees extends Component {
+
     state = {
-        image: '',
-        name: '',
-    }
+        employeeResArr: [],
+    };
 
     componentDidMount() {
-        this.loadEmployees();
-    }
+        console.log('found employees');
+        this.loadEmployees()
+
+    };
+
+    onSort(event, sortKey) {
+
+        const employeeData = this.state.employeeResArr
+        employeeData.sort((employee1, employee2) => {
+            return employee1[sortKey].localeCompare(employee2[sortKey])
+        })
+        this.setState({employeeData})
+        }
+
+    // handleBtnClick = event => {
+    //     const 
+
+    // }
 
     loadEmployees = () => {
         API.getEmployees()
             .then(res => {
                 console.log(res);
-                this.setState(
-                    {
-                        image: res.data.results[0].picture.medium,
-                        name: res.data.results[0].name.first + " " + res.data.results[0].name.last,
-                        email: res.data.results[0].email,
-                        address: res.data.results[0].location.street.number + " " + res.data.results[0].location.street.name + " " + res.data.results[0].location.city + ", " + res.data.results[0].location.state
+
+                const employeeArr = res.data.results.map((employeeObj) => {
+                    const obj = {
+                        name: employeeObj.name.first,
+                        image: employeeObj.picture.medium,
+                        email: employeeObj.email,
+                        address: employeeObj.location.street.number + " " + employeeObj.location.street.name + " " + employeeObj.location.city + ", " + employeeObj.location.state,
                     }
-                    )
+                    // console.log(obj);
+                    return obj
+
+                });
+
+                // console.log(employeeArr);
+                this.setState({ employeeResArr: employeeArr })
+
             })
-    }
+    };
 
     render() {
+        console.log('rendering');
+        console.log(this.state.employeeResArr);
+        // console.log(divToRender);
         return (
             <div>
-            <Container>
-                <Row>
-                    <Col size='lg-12'>
-                    <p>Home Page</p>
-                    <Table scope='col'>
-                        <TableRow scope="row" name={this.state.name} image={this.state.image} email={this.state.email} address={this.state.address}>
+                <Container>
+                    <Row>
+                        <Col size='lg-12'>
+                            <p>Employees</p>
+                            <table className="table">
+                                <thead className="thead-dark">
+                                    <tr>
+                                        <th scope='col'>#</th>
+                                        <th scope='col' onClick={e => this.onSort(e, 'name')}>Full Name</th>
+                                        <th scope='col'>Picture</th>
+                                        <th scope='col'>Address</th>
+                                        <th scope='col'>Email</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {
+                                        this.state.employeeResArr.map((value, index) => {
+                                    return <TableRow 
+                                    scope="row"
+                                     key={index}
+                                     num={index}
+                                     name={value.name} 
+                                     image={value.image} 
+                                     email={value.email}
+                                      address={value.address}
+                                       />
+                                })
+                                }
+                                    </tbody>
 
-                        </TableRow>
-                    </Table>
-                    </Col>
-                </Row>
-            </Container>
-        </div>
-        )
-    }
+                            </table>
+                        </Col>
+                    </Row>
+                </Container>
+            </div>
+        );
+    };
 }
+
 
 export default Employees;
