@@ -12,7 +12,9 @@ class Employees extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            //this is the state variable that api response is set to
             employeeResArr: [],
+            //this is the state variable that filtered results is set to
             filteredEmployees: [],
             value: 'firstName',
             ascKey: false,
@@ -30,48 +32,43 @@ class Employees extends Component {
     //The second parameter is the key of the values that are rendered into that column from the state employeeresArr
     //so for clicking on name columm sortKey deliver is 'firstName' so it sorts by first name of employee
     onSortString(event, sortKey, ascKey) {
-        console.log(ascKey);
+
         console.log('sorting string')
         const employeeData = this.state.employeeResArr
 
             if(!ascKey) {
-            console.log(typeof (employeeData[0][sortKey]));
+            
             employeeData.sort((employee1, employee2) => {
                 return employee1[sortKey].localeCompare(employee2[sortKey])
             })
         } else {
             console.log('reverse');
-            console.log(employeeData);
             employeeData.reverse()
-            console.log(employeeData);
         }
+
         this.setState({ ascKey: !ascKey });
         this.setState({ employeeData })
-
     }
 
     onSortNumber(event, sortKey, ascKey) {
-        console.log(ascKey);
+        
         console.log('sorting number')
         const employeeData = this.state.employeeResArr
 
             if(!ascKey) {
-            console.log(typeof (employeeData[0][sortKey]));
+            
             employeeData.sort((employee1, employee2) => {
                 return employee1[sortKey] - employee2[sortKey]
             })
-            
         } else {
             console.log('reverse');
-            console.log(employeeData);
             employeeData.sort((employee1, employee2) => { 
                 return employee2[sortKey] - employee1[sortKey]
              })
-            console.log(employeeData);
         }
+
         this.setState({ ascKey: !ascKey });
         this.setState({ employeeData })
-
     }
 
 
@@ -80,9 +77,7 @@ class Employees extends Component {
     //The third is the value that was selected in the dropdown menu.  This directs the code to the correct if-else block.
     onFilter(event, filterKey, value) {
         console.log('filtering')
-        console.log(value);
-        console.log(filterKey);
-
+       
         if (value === "firstName") {
             const employeeData = this.state.employeeResArr
             const filterEmployees = employeeData.filter((employee) => employee.firstName === filterKey)
@@ -100,6 +95,9 @@ class Employees extends Component {
         }
     }
 
+    //This function interacts with the Api
+    //It goes to the API file that is imported at top of page and then runs through that response object taking only the values needed and mapping them into a new array of employee objects
+    //That new arr of employee objects is then set to the filteredEmployees state variable
     loadEmployees = () => {
         API.getEmployees()
             .then(res => {
@@ -124,16 +122,15 @@ class Employees extends Component {
             })
     };
 
+    //This function is used in the <Select/> to add the value the user select to the state variable
     handleChange(event) {
         console.log('handle change');
-
         this.setState({ value: event.target.value });
     }
 
+    //This function is necessary to React.  It looks for it and uses it to render the jsx as html to the page
     render() {
-        console.log('rendering');
-        console.log(this.state.ascKeyFN);
-        console.log(this.state.ascKeyYWC);
+        console.log('rendering');  
         return (
             <div>
                 <Container>

@@ -6,6 +6,8 @@ import Navbar from "./components/navbar";
 import Footer from "./components/footer";
 import Wrapper from "./components/wrapper";
 
+
+//This is the code for the App.js which renders the given page based on the components delivered in the <Route/> in the below Navbar
 function App() {
   return (
     <Router>
