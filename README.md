@@ -90,4 +90,5 @@ See the layout of the app below.
 ## Known Issues With Code
 * both the first name and years with company use the same ascKey to sort.  So they are both flipping it back and forth which could possibly be considered bad form.
 * The app is set-up without using hooks such as useState, useEffect, etc so is a bit outdated.
+* To get all employees to show up again after filtering had to add an option in dropdown and enter any letter to rerun filter func.
 

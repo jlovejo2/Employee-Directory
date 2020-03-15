@@ -92,6 +92,9 @@ class Employees extends Component {
             //While respone from axios call for registered age is an integer
             const filterEmployees = employeeData.filter((employee) => employee.yearsWithCompany == filterKey)
             this.setState({ filteredEmployees: filterEmployees })
+        } else {
+            this.setState({ filteredEmployees: this.state.employeeResArr})
+            // this.render()
         }
     }
 
