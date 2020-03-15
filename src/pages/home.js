@@ -2,8 +2,6 @@ import React from 'react';
 import Container from "../components/container";
 import Row from "../components/row";
 import Col from "../components/col";
-// import Table from '../components/table';
-// import TableRow from '../components/tableRow';
 
 
 function Home () {
