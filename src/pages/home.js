@@ -10,7 +10,7 @@ function Home () {
     return (
         <div>
             <Container>
-                <Row>
+                <Row center='true'>
                     <Col size='lg-12'>
                     <h1>This is the Home Page</h1>
                     <p>Welcome Welcome Welcome</p>
