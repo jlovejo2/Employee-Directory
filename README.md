@@ -5,7 +5,7 @@ the link to github is shown below:
 https://github.com/jlovejo2/Employee-Directory.git
 
 the link to the functional app is shown below:
-https://employee-directory-jlovejo2.herokuapp.com/
+https://https://jlovejo2.github.io/Employee-Directory/
 
 ## Table of Contents
 * [User Story](#user-story)
@@ -21,7 +21,7 @@ https://employee-directory-jlovejo2.herokuapp.com/
 As a user I am in need of a user-friendly UI that allows me to search through my employee database for general information on the employees.  I would like an ability to sort all the results in descending and ascending order of certain columns.  As well the ability of filtering the results that are displayed in the table based on specific criteria. 
 
 ## Version 1.0
-* This employee-directory app runs via heroku or by entering the command "npm start" to initialize the react server.
+* This employee-directory app runs via github pages or by entering the command "npm start" to initialize the react server.
 * Make sure you are in the main folder when running the code on the command line.
 * This app does have two pages a "Home" and "Employees" page.  The employees page displays renders random employees in the table from the 'https://randomuser.me/api/?results=50&nat=us' api.  The employees table is searchable based on criteria in the searchbar and dropdown.  User can also click on the "full name" and "years with company" to sort the table based on those columns.
 
