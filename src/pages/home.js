@@ -12,12 +12,9 @@ function Home () {
             <Container>
                 <Row>
                     <Col size='lg-12'>
-                    <p>Home Page</p>
-                    {/* <Table>
-                        <TableRow scope="row" name="Eddie">
-
-                        </TableRow>
-                    </Table> */}
+                    <h1>This is the Home Page</h1>
+                    <p>Welcome Welcome Welcome</p>
+                   
                     </Col>
                 </Row>
             </Container>
