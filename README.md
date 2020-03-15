@@ -5,7 +5,7 @@ the link to github is shown below:
 https://github.com/jlovejo2/Employee-Directory.git
 
 the link to the functional app is shown below:
-https://Employee-Directory-jlovejo2.herokuapp.com/
+https://employee-directory-jlovejo2.herokuapp.com/
 
 ## Table of Contents
 * [User Story](#user-story)
