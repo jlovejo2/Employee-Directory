@@ -90,6 +90,7 @@ class Employees extends Component {
             const employeeData = this.state.employeeResArr
             //The "==" was done intentionally in below lines of code.  It is because user is typing in the info in an input box which is coming back as a string
             //While respone from axios call for registered age is an integer
+            // eslint-disable-next-line
             const filterEmployees = employeeData.filter((employee) => employee.yearsWithCompany == filterKey)
             this.setState({ filteredEmployees: filterEmployees })
         } else {
@@ -102,6 +103,7 @@ class Employees extends Component {
     //It goes to the API file that is imported at top of page and then runs through that response object taking only the values needed and mapping them into a new array of employee objects
     //That new arr of employee objects is then set to the filteredEmployees state variable
     loadEmployees = () => {
+        console.log('before API');
         API.getEmployees()
             .then(res => {
                 console.log('employees loaded');
@@ -140,13 +142,11 @@ class Employees extends Component {
                     <Row center='true'>
                         <Col size='lg-12'>
                             <br></br>
-                            <p>
                                 <h3>Welcome to the Employees Page!!</h3>
                                 <strong>There are a handful of options for interacting with this table</strong>
                                 <UnorderedList 
                                     bootStrapList={true}
                                 />
-                            </p>
                             <br></br>
                             <SearchTable
                                 value={this.state.value}
